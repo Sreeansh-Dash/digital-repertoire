@@ -1,0 +1,77 @@
+#hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-tab {
+  position: absolute;
+  top: 40px;
+  left: -10px;
+  background-color: var(--green);
+  color: var(--paper);
+  padding: 4px 16px;
+  transform: rotate(-2deg);
+  font-size: 0.85rem;
+  box-shadow: 2px 2px 0 var(--ink);
+  border: 1.5px solid var(--ink);
+  z-index: 10;
+}
+
+#hero h1 {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: 1rem;
+  max-width: 600px;
+}
+
+#hero .hand {
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+  max-width: 500px;
+  margin-bottom: 3rem;
+  line-height: 1.4;
+}
+
+.hero-scene {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 40px;
+  left: 32px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* Mug steam animation */
+@keyframes steamRise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-15px) scale(1.2); opacity: 0; }
+}
+
+.steam-wisp {
+  animation: steamRise 3s infinite ease-out;
+  opacity: 0;
+  transform-origin: center bottom;
+}
+.steam-wisp:nth-child(2) { animation-delay: 1s; }
+.steam-wisp:nth-child(3) { animation-delay: 2s; }

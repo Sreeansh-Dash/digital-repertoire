@@ -1,0 +1,140 @@
+#contact {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 8rem;
+}
+
+.contact-label {
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+#contact h2 {
+  margin-bottom: 3rem;
+}
+
+/* Envelope */
+.envelope-wrapper {
+  perspective: 800px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.envelope {
+  position: relative;
+  width: 150px;
+  height: 110px;
+  transform-style: preserve-3d;
+}
+
+.env-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--paper-alt);
+  border: 2px solid var(--ink);
+  z-index: 1;
+}
+
+.env-paper {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 130px;
+  height: 90px;
+  background-color: var(--paper);
+  border: 1px dashed var(--ink-soft);
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10px;
+  transition: transform 0.4s ease;
+}
+
+.env-paper .hand {
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.env-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  fill: var(--paper-alt);
+  stroke: var(--ink);
+  stroke-width: 2px;
+  pointer-events: none;
+}
+
+.env-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 5;
+  transform-origin: top;
+  transition: transform 0.4s ease;
+  fill: var(--paper-alt);
+  stroke: var(--ink);
+  stroke-width: 2px;
+}
+
+.envelope-wrapper:hover .env-flap {
+  transform: rotateX(170deg);
+  z-index: 3; /* Push flap behind front when open */
+}
+
+.envelope-wrapper:hover .env-paper {
+  transform: translateY(-30px);
+}
+
+/* Email */
+.contact-email {
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--green);
+  text-underline-offset: 4px;
+  margin-bottom: 3rem;
+  display: inline-block;
+}
+
+/* Stamp Links */
+.stamp-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.stamp-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.stamp-link:hover {
+  transform: rotate(-8deg) scale(1.08);
+  background-color: var(--ochre);
+}

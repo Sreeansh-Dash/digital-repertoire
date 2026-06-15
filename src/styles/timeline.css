@@ -1,0 +1,40 @@
+#spine-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5; /* Higher than background but lower than text */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.spine-svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+}
+
+.spine-path {
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.spine-node {
+  fill: var(--ochre);
+  stroke: var(--ink);
+  stroke-width: 2px;
+}
+
+/* Hide spine on mobile */
+@media (max-width: 639px) {
+  #spine-container {
+    display: none;
+  }
+}

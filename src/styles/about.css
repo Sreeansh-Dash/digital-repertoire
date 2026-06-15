@@ -1,0 +1,122 @@
+#about {
+  min-height: 80vh;
+}
+
+.about-header {
+  margin-bottom: 3rem;
+}
+
+.about-label {
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Photo Placeholder */
+.photo-wrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  transform: rotate(-2deg);
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border: 2.5px solid var(--ink);
+  background: repeating-linear-gradient(
+    45deg,
+    var(--paper-alt),
+    var(--paper-alt) 2px,
+    var(--paper) 2px,
+    var(--paper) 8px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+}
+
+.photo-tape {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  background-color: var(--ochre);
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.photo-tape.top-left {
+  top: -10px;
+  left: -20px;
+  transform: rotate(-30deg);
+}
+
+.photo-tape.bottom-right {
+  bottom: -10px;
+  right: -20px;
+  background-color: var(--green);
+  transform: rotate(-30deg);
+}
+
+/* Bio */
+.about-bio p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.about-aside {
+  color: var(--green);
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  display: inline-block;
+}
+
+/* Skills */
+.skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 70px;
+}
+
+.skill svg {
+  width: 48px;
+  height: 48px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.skill .label {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+@media (max-width: 639px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .photo-wrapper {
+    margin: 0 auto;
+  }
+}

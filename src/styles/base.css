@@ -1,0 +1,116 @@
+:root {
+  --paper:       #EAE3D2;   /* base background — warm kraft paper */
+  --paper-alt:   #E1D7C2;   /* alternating section background */
+  --ink:         #232E3C;   /* primary text + strokes */
+  --ink-soft:    #6E7C8A;   /* secondary text, placeholders */
+  --green:       #3F5D45;   /* accent 1 — forest ink */
+  --ochre:       #C99A2E;   /* accent 2 — ochre/gold */
+  --rust:        #9C4221;   /* accent 3 — rust red, used sparingly */
+  --grid:        rgba(35, 46, 60, 0.07);  /* notebook grid overlay */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: var(--ink);
+  font-family: 'Work Sans', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.label, code {
+  font-family: 'Space Mono', monospace;
+}
+
+.hand {
+  font-family: 'Kalam', cursive;
+}
+
+h1, h2, h3 {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--ochre);
+  outline-offset: 4px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 20px;
+}
+
+.content-left {
+  position: relative;
+  width: 45%;
+  margin-right: auto;
+  padding: 60px 0;
+}
+
+.content-right {
+  position: relative;
+  width: 45%;
+  margin-left: auto;
+  padding: 60px 0;
+}
+
+.section-alt {
+  background-color: var(--paper-alt);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.divider {
+  width: 100%;
+  height: 60px;
+  display: block;
+  fill: var(--paper);
+}
+
+.divider.to-paper {
+  fill: var(--paper);
+}
+
+.section-alt {
+  background-color: var(--paper-alt);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  [pathLength] { stroke-dashoffset: 0 !important; }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 800px) {
+  .content-left, .content-right {
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+  .section-alt {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,160 @@
+#projects {
+  padding-bottom: 6rem;
+}
+
+.projects-header {
+  margin-bottom: 4rem;
+}
+
+.projects-label {
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Card Design */
+.project-card {
+  background-color: var(--paper);
+  border: 2.5px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 2rem;
+  position: relative;
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* Status Stamps */
+.status-stamp {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border: 2px solid;
+  transform: rotate(3deg);
+  white-space: nowrap;
+}
+
+.status-shipped {
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.status-academic {
+  color: var(--ochre);
+  border-color: var(--ochre);
+}
+
+.status-patent-pending {
+  color: var(--rust);
+  border-color: var(--rust);
+}
+
+/* Screenshot Placeholder */
+.project-img-placeholder {
+  width: 100%;
+  height: 170px;
+  border: 2px dashed var(--ink-soft);
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--grid),
+    var(--grid) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.project-img-label {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+/* Description */
+.project-desc {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  max-width: 90%;
+}
+
+/* Tech Stack Tags */
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 2rem; /* space for annotation */
+}
+
+.tech-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  padding: 4px 10px;
+  border: 1.5px solid var(--ink);
+  color: var(--paper);
+}
+
+.tech-tag:nth-child(3n+1) { background-color: var(--green); transform: rotate(-1deg); }
+.tech-tag:nth-child(3n+2) { background-color: var(--ochre); transform: rotate(1deg); }
+.tech-tag:nth-child(3n+3) { background-color: var(--ink); transform: rotate(-2deg); }
+
+/* Hand Annotation */
+.project-annotation {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  transform: rotate(-3deg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+}
+
+.annotation-text {
+  font-size: 1.1rem;
+  color: var(--green);
+}
+
+.annotation-arrow {
+  width: 40px;
+  height: 20px;
+  fill: none;
+  stroke: var(--green);
+  stroke-width: 2px;
+  stroke-dasharray: 4 5;
+  stroke-linecap: round;
+}
+
+@media (max-width: 639px) {
+  .project-card {
+    padding: 1.5rem;
+  }
+  
+  .project-card-header {
+    flex-direction: column;
+  }
+  
+  .project-annotation {
+    display: none; /* Hide on mobile per instructions */
+  }
+  
+  .project-stack {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,123 @@
+#experience {
+  min-height: 80vh;
+  padding-bottom: 6rem;
+  position: relative;
+  overflow: hidden; /* Prevent cards from causing horizontal scroll when off-screen */
+}
+
+.experience-header {
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+.experience-label {
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+/* Timeline Layout */
+.timeline-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* SVG Road */
+.timeline-road-svg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.timeline-path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 3px;
+  stroke-dasharray: 6 6; /* Make it look like a stitched path */
+}
+
+.timeline-pin {
+  fill: var(--ochre);
+  stroke: var(--ink);
+  stroke-width: 2px;
+  filter: drop-shadow(2px 2px 0px rgba(35, 46, 60, 0.5));
+}
+
+/* Milestone Cards */
+.milestone {
+  position: relative;
+  width: 40%;
+  margin-bottom: 80px;
+  z-index: 2;
+  clear: both;
+}
+
+.milestone-left {
+  float: left;
+  transform: rotate(-2deg);
+}
+
+.milestone-right {
+  float: right;
+  transform: rotate(2deg);
+}
+
+.milestone-card {
+  background-color: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 1.5rem;
+}
+
+.milestone-year {
+  font-family: 'Space Mono', monospace;
+  color: var(--green);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.milestone-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.milestone-sub {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+
+.milestone-note {
+  font-family: 'Kalam', cursive;
+  font-size: 1rem;
+  color: var(--ink);
+  border-top: 1px dashed var(--ink-soft);
+  padding-top: 0.8rem;
+}
+
+@media (max-width: 639px) {
+  .timeline-road-svg {
+    left: 20px;
+    transform: none;
+  }
+  
+  .milestone {
+    width: calc(100% - 60px);
+    float: right;
+    margin-bottom: 60px;
+    transform: rotate(0);
+  }
+  
+  .milestone-left, .milestone-right {
+    float: right;
+    transform: rotate(1deg);
+  }
+}
