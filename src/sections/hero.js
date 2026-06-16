@@ -12,8 +12,8 @@ export function initHero() {
       
       <!-- Desk Scene Wrapper -->
       <div style="position:relative; margin-top: 40px; width: 100%;">
-        <div class="hero-profile" style="position: absolute; right: 0; top: -40px; width:120px; height:140px; background:var(--paper); padding:10px 10px 30px 10px; border:1px solid var(--ink-soft); box-shadow: 4px 4px 0 rgba(0,0,0,0.05); transform: rotate(6deg); z-index: 20;">
-          <img src="/profile.jpg" alt="Profile" style="width:100%; height:100%; object-fit:cover; filter: grayscale(100%);" />
+        <div class="hero-profile" style="position: absolute; right: 0; top: -40px; width:160px; height:190px; background:var(--paper); padding:10px 10px 30px 10px; border:1px solid var(--ink-soft); box-shadow: 4px 4px 0 rgba(0,0,0,0.05); transform: rotate(6deg); z-index: 20;">
+          <img src="/profile.jpg" alt="Profile" style="width:100%; height:100%; object-fit:cover;" />
         </div>
         
         <!-- Desk Scene SVG -->

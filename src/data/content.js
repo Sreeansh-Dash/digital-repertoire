@@ -1,7 +1,7 @@
 export const meta = {
   name: "Sreeansh Dash",
   role: "CS Student · AI/ML · VIT Chennai",
-  tagline: "sketching side projects & chasing a remote internship",
+  tagline: "Ink in the compiler. Stories in the code.",
   email: "sreeansh786@gmail.com",
   github: "https://github.com/Sreeansh-Dash",
   linkedin: "https://www.linkedin.com/in/sreeansh-dash/",
@@ -10,17 +10,18 @@ export const meta = {
 
 export const about = {
   bio: [
-    "I build small, working things. Most recently I shipped PromptWars Challenge 3 using Gemini Pro/Flash — a prompts-only workflow with zero hand-written boilerplate.",
-    "Also working on a patent application for a mobility assistance system with embedded ML, and keeping a decent CGPA while doing all of it."
+    "Code is not merely instructions for a machine; it is a modern script written to solve human problems.",
+    "I am a student of systems and an author of intelligent software. Currently pursuing my B.Tech in Computer Science & Engineering (AI/ML) at VIT Chennai with a 9.62 CGPA, I view development as a digital craftsmanship. My focus lies at the intersection of data-driven intelligence, elegant backend architecture, and real-world edge deployment."
   ],
   aside: "I like projects small enough to finish and weird enough to talk about.",
   skills: [
-    { label: "code",     icon: "code"     },
-    { label: "ML/AI",    icon: "brain"    },
-    { label: "terminal", icon: "terminal" },
-    { label: "systems",  icon: "gear"     },
-    { label: "models",   icon: "model"    },
-    { label: "data",     icon: "data"     }
+    { category: "code", icon: "code", subtopics: "Python • Java • C/C++ • JavaScript" },
+    { category: "AI / ML", icon: "brain", subtopics: "Deep Learning • Computer Vision • NLP • YOLOv8 • OpenCV" },
+    { category: "backend & dev", icon: "terminal", subtopics: "REST APIs • Backend Development • Agile / Scrum" },
+    { category: "hardware & networks", icon: "gear", subtopics: "Embedded Systems • Arduino / ESP32 • IoT Sensors • Cisco Packet Tracer" },
+    { category: "data", icon: "data", subtopics: "SQL & Database Management • PCA • K-Means Clustering • Pandas" },
+    { category: "tools", icon: "tools", subtopics: "VS Code • Figma • Streamlit • Git & GitHub" },
+    { category: "Foundations", icon: "book", subtopics: "Data Structures & Algorithms • Competitive Programming • Network Engineering" }
   ]
 };
 
