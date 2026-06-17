@@ -81,6 +81,7 @@ html[data-theme="terminal"] .photo-tape {
 
 html[data-theme="terminal"] .skill-subtopics {
   white-space: normal;
+  text-align: right;
 }
 
 /* Bio */
@@ -121,6 +122,35 @@ html[data-theme="terminal"] .about-grid {
   justify-content: center;
 }
 
+html[data-theme="terminal"] .skill-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "category icon"
+    "subtopics subtopics";
+  gap: 0.5rem 1rem;
+  align-items: center;
+}
+
+html[data-theme="terminal"] .skill-category-wrapper {
+  grid-area: category;
+  margin-right: 0;
+  justify-self: flex-end;
+  text-align: right;
+}
+
+html[data-theme="terminal"] .skill-icon-wrapper {
+  grid-area: icon;
+}
+
+html[data-theme="terminal"] .skill-subtopics-wrapper {
+  grid-area: subtopics;
+  width: 100%;
+  padding-right: 0;
+  justify-content: flex-end;
+  text-align: right;
+}
+
 /* Skills Overhaul Layout */
 .skills-overhaul {
   display: flex;
@@ -154,6 +184,7 @@ html[data-theme="terminal"] .about-grid {
   color: var(--text);
   line-height: 1.4;
   white-space: nowrap;
+  text-align: right;
 }
 
 .skill-category-wrapper {

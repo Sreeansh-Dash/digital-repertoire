@@ -5,6 +5,7 @@ export const meta = {
   email: "sreeansh786@gmail.com",
   github: "https://github.com/Sreeansh-Dash",
   linkedin: "https://www.linkedin.com/in/sreeansh-dash/",
+  leetcode: "https://leetcode.com/u/SreeanshDash/",
   cv: "/Sreeansh_dash_resume_visual.pdf"
 };
 
@@ -29,27 +30,37 @@ export const projects = [
   {
     title: "PromptWars Challenge 3",
     status: "SHIPPED",
-    description: "Hack2Skill challenge — built entirely with a prompts-only workflow. No hand-written boilerplate, just Gemini Pro/Flash + Stitch MCP.",
+    description: "Hack2Skill challenge — built entirely with a prompts-only workflow. No hand-written boilerplate, just Gemini Pro/Flash + Stitch MCP. To view the live project <a href=\"https://promptwars-week-3-fimjd3rmq-sreeansh-dashs-projects.vercel.app/\" target=\"_blank\" style=\"text-decoration:underline;\">click here</a>.",
     stack: ["Gemini Pro/Flash", "Stitch MCP", "Prompt Eng."],
     annotation: "every screen here came from a prompt, not a line of code →",
-    link: "#"
+    images: ["/Promptwars_img1.png", "/prompwars_img2.png"],
+    link: "https://promptwars-week-3-fimjd3rmq-sreeansh-dashs-projects.vercel.app/"
   },
   {
-    title: "ML Classification Pipeline",
+    title: "Cluster Adaptive Blood Report Analyzer",
     status: "ACADEMIC",
-    description: "Multi-label classification on a large patient dataset. KMeans/PCA for preprocessing, XGBoost + LightGBM ensemble. Validated AUC-ROC and Macro-F1.",
+    description: "Multi-label classification on a large patient dataset. KMeans/PCA for preprocessing, XGBoost + LightGBM ensemble. Validated AUC-ROC and Macro-F1. For further details on pipeline and charts <a href=\"https://cluster-adaptive-blood-report-analy.vercel.app/\" target=\"_blank\" style=\"text-decoration:underline;\">click here</a>.",
     stack: ["Python", "XGBoost", "LightGBM", "scikit-learn"],
     annotation: "beat baseline by 12% on Macro-F1 →",
     images: ["/blood_tsne.png", "/blood_ranges.png"],
-    link: "#"
+    link: "https://cluster-adaptive-blood-report-analy.vercel.app/"
   },
   {
     title: "Mobility Assistance System",
     status: "PATENT PENDING",
-    description: "ML-based autonomous navigation system for mobility-impaired users. Indian patent application filed (Form 2).",
+    description: "ML-based autonomous navigation system for mobility-impaired users. Ackermann steering and terrain adaptive feedback systems were added. Indian patent application filed.",
     stack: ["Embedded ML", "Computer Vision", "IoT"],
     annotation: "filed an Indian patent for this one →",
     image: "/smartcane.png",
+    link: "#"
+  },
+  {
+    title: "Cascadex",
+    status: "IN DEVELOPMENT",
+    description: "An AI powered Neo4j graph-based application that scans medicines and tells which combinations are harmful. It is a mobile application built on EAS.",
+    stack: ["Expo", "AuraDB", "FastAPI"],
+    annotation: "see the chain reaction before it happens →",
+    images: ["/cascadeex-1.jpeg", "/cascadex-2.png"],
     link: "#"
   }
 ];
@@ -59,35 +70,28 @@ export const experience = [
     year: "2024",
     title: "VIT Chennai",
     sub: "B.Tech CSE — AI/ML Specialization",
-    note: "3rd year, strong CGPA",
+    note: "3rd year, 9.62 CGPA",
     side: "right"
   },
   {
-    year: "2024",
-    title: "Amazon ML Summer School",
-    sub: "Applied",
-    note: "ML theory + applied track",
+    year: "Aug 2025 - Apr 2026",
+    title: "Head of Operations",
+    sub: "Kalingajyoti Club",
+    note: "<ul style=\"padding-left:1.2rem; margin:0;\"><li>Head of 20+ dept members responsible for on and before-event operations.</li><li>Experience in leadership and accountability.</li></ul>",
     side: "left"
   },
   {
-    year: "2025",
-    title: "PromptWars Ch.3",
-    sub: "Hack2Skill Challenge",
-    note: "prompts-only, shipped live",
+    year: "Jan 2026 - Mar 2026",
+    title: "ysoc",
+    sub: "Open Source Contributor",
+    note: "<ul style=\"padding-left:1.2rem; margin:0;\"><li>Experience in open source and github.</li></ul>",
     side: "right"
-  },
-  {
-    year: "2025",
-    title: "Indian Patent Filing",
-    sub: "Mobility Assistance System",
-    note: "Form 2 filed",
-    side: "left"
   },
   {
     year: "2026",
     title: "Portfolio Launch",
     sub: "This very site",
     note: "open to remote internship",
-    side: "right"
+    side: "left"
   }
 ];

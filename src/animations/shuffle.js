@@ -138,7 +138,8 @@ export class Shuffle {
         display: 'inline-block',
         willChange: 'transform',
         transformOrigin: 'left',
-        verticalAlign: 'bottom'
+        verticalAlign: 'bottom',
+        whiteSpace: 'nowrap'
       });
 
       parent.insertBefore(wrap, ch);

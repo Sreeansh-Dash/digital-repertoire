@@ -15,6 +15,7 @@ import { initContact } from './sections/contact.js';
 import { initDoodlePlacement } from './animations/doodlePlacement.js';
 import { initDoodleAnimations } from './animations/marginDoodles.js';
 import { initTerminalMode } from './animations/terminalMode.js';
+import { initClickSpark } from './animations/clickSpark.js';
 
 const DOODLES_ENABLED = true;
 
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initExperience();
   initContact();
   initTerminalMode();
+  initClickSpark();
 
   // Initialize spine once the DOM elements are created
   initBindingLine();
