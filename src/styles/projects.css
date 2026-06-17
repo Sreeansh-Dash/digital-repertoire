@@ -205,8 +205,18 @@ html[data-theme="terminal"] .status-patent-pending {
   
   .project-card-header {
     flex-direction: column;
+    gap: 0.5rem;
   }
   
+  .project-title {
+    word-break: break-word;
+  }
+
+  .status-stamp {
+    white-space: normal;
+    word-break: break-word;
+  }
+
   .project-annotation {
     display: none; /* Hide on mobile per instructions */
   }

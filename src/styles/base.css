@@ -251,4 +251,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .section-alt {
     padding: 20px;
   }
+  body {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
 }

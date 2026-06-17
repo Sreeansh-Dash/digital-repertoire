@@ -257,6 +257,11 @@ html[data-theme="terminal"] .skill-subtopics-wrapper {
     text-align: left;
     margin-right: 0;
   }
+
+  .skill-category {
+    white-space: normal;
+    word-break: break-word;
+  }
   
   .skill-subtopics-wrapper {
     grid-area: subtopics;
@@ -269,6 +274,7 @@ html[data-theme="terminal"] .skill-subtopics-wrapper {
   .skill-subtopics {
     white-space: normal;
     text-align: left;
+    word-break: break-word;
   }
 }
 
