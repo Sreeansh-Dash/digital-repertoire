@@ -105,6 +105,8 @@ export function initProjects() {
       if (prefersReducedMotion || isUserScrolling) return;
       if (autoScrollTween) autoScrollTween.kill();
       
+      grid.style.scrollSnapType = 'none';
+
       const currentScroll = grid.scrollLeft;
       const targetScroll = currentScroll + singleSetWidth;
       const remainingDist = targetScroll - currentScroll;
@@ -141,6 +143,7 @@ export function initProjects() {
     
     const handleInteraction = () => {
       isUserScrolling = true;
+      grid.style.scrollSnapType = 'x mandatory';
       pauseAutoScroll();
       scheduleResume();
     };

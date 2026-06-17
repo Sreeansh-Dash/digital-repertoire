@@ -93,6 +93,33 @@
   border-color: var(--rust);
 }
 
+html[data-theme="terminal"] .status-stamp {
+  border: none;
+  transform: none;
+  padding: 0;
+  background: transparent;
+}
+
+html[data-theme="terminal"] .status-stamp::before {
+  content: "[";
+}
+
+html[data-theme="terminal"] .status-stamp::after {
+  content: "]";
+}
+
+html[data-theme="terminal"] .status-shipped {
+  text-shadow: 0 0 5px var(--green);
+}
+
+html[data-theme="terminal"] .status-academic {
+  text-shadow: 0 0 5px var(--ochre);
+}
+
+html[data-theme="terminal"] .status-patent-pending {
+  text-shadow: 0 0 5px var(--rust);
+}
+
 /* Screenshot Placeholder */
 .project-img-placeholder {
   width: 100%;

@@ -9,6 +9,139 @@
   --grid:        rgba(35, 46, 60, 0.07);  /* notebook grid overlay */
 }
 
+html[data-theme="terminal"] {
+  --paper:       #0A0A0A;
+  --paper-alt:   #111111;
+  --ink:         #39FF74;
+  --ink-soft:    #5C8A6E;
+  --green:       #00FF99;
+  --ochre:       #FFD400;
+  --rust:        #FF4444;
+  --grid:        rgba(0, 255, 153, 0.1);
+}
+
+html[data-theme="terminal"] body {
+  font-family: 'Space Mono', monospace;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html[data-theme="terminal"] h1, 
+html[data-theme="terminal"] h2, 
+html[data-theme="terminal"] h3, 
+html[data-theme="terminal"] .hand {
+  font-family: 'Space Mono', monospace;
+}
+
+html[data-theme="terminal"] body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.04) 2px,
+    rgba(255, 255, 255, 0.04) 4px
+  );
+  z-index: 9000;
+}
+
+html[data-theme="terminal"] .decor {
+  filter: brightness(1.4) saturate(0);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+html[data-theme="terminal"] .annotation-text::before {
+  content: "// ";
+}
+
+#esc-terminal {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-family: 'Space Mono', monospace;
+  color: var(--ink);
+  background: none;
+  border: 1px solid var(--ink);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, background 0.2s ease;
+}
+
+html[data-theme="terminal"] #esc-terminal {
+  opacity: 0.6;
+  pointer-events: auto;
+}
+
+html[data-theme="terminal"] #esc-terminal:hover {
+  opacity: 1;
+  background: rgba(57, 255, 116, 0.1);
+}
+
+/* Mac OS Terminal for About Section */
+html[data-theme="terminal"] .about-container {
+  border: 2px solid var(--ink);
+  border-top: 30px solid var(--ink);
+  border-radius: 8px;
+  background-color: var(--paper-alt);
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 0 1px var(--ink);
+  z-index: 10;
+}
+
+html[data-theme="terminal"] .about-container::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f56;
+  box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+  z-index: 10;
+}
+
+/* Classic Terminal for Experience/Timeline Section */
+html[data-theme="terminal"] .section-alt {
+  border: 2px solid var(--ink);
+  border-top: 30px solid var(--ink);
+  border-radius: 0;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 0 1px var(--ink);
+  z-index: 10;
+}
+
+html[data-theme="terminal"] .section-alt::before {
+  content: "user@portfolio: ~";
+  position: absolute;
+  top: -24px;
+  left: 10px;
+  color: var(--paper);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  z-index: 10;
+}
+
+html[data-theme="terminal"] .section-alt::after {
+  content: "[X]";
+  position: absolute;
+  top: -24px;
+  right: 10px;
+  color: var(--paper);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  z-index: 10;
+}
 * {
   margin: 0;
   padding: 0;
@@ -93,6 +226,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .section-alt {
   background-color: var(--paper-alt);
+}
+
+@keyframes pulse-terminal {
+  from { opacity: 0.1; }
+  to { opacity: 0.3; }
 }
 
 @media (prefers-reduced-motion: reduce) {

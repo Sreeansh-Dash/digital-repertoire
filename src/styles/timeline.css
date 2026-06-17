@@ -32,6 +32,17 @@
   stroke-width: 2px;
 }
 
+html[data-theme="terminal"] .spine-path {
+  stroke: var(--ink);
+  filter: drop-shadow(0 0 5px var(--ink));
+}
+
+html[data-theme="terminal"] .spine-node {
+  fill: var(--paper);
+  stroke: var(--ink);
+  filter: drop-shadow(0 0 5px var(--ink));
+}
+
 /* Hide spine on mobile */
 @media (max-width: 639px) {
   #spine-container {

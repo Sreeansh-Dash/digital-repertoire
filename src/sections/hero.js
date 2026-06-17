@@ -1,5 +1,6 @@
 import { meta } from '../data/content.js';
 import gsap from 'gsap';
+import { activateTerminalMode } from '../animations/terminalMode.js';
 
 export function initHero() {
   const heroSection = document.getElementById('hero');
@@ -12,6 +13,9 @@ export function initHero() {
       
       <!-- Desk Scene Wrapper -->
       <div style="position:relative; margin-top: 40px; width: 100%;">
+        <!-- Hidden Terminal Trigger -->
+        <div id="terminal-trigger" tabindex="0" style="position: absolute; right: 20px; top: -10px; width: 12px; height: 12px; background: var(--ink); border-radius: 50%; opacity: 0.2; cursor: pointer; animation: pulse-terminal 2s infinite alternate; z-index: 100;" title="Click me"></div>
+        
         <div class="hero-profile" style="position: absolute; right: 0; top: -40px; width:160px; height:190px; background:var(--paper); padding:10px 10px 30px 10px; border:1px solid var(--ink-soft); box-shadow: 4px 4px 0 rgba(0,0,0,0.05); transform: rotate(6deg); z-index: 20;">
           <img src="/profile.jpg" alt="Profile" style="width:100%; height:100%; object-fit:cover;" />
         </div>
@@ -120,4 +124,13 @@ export function initHero() {
   drawAnim('.draw-sticky-line', 1.75);
 
   // Steam animation starts automatically via CSS
+
+  // Terminal Trigger Events
+  const trigger = document.getElementById('terminal-trigger');
+  if (trigger) {
+    trigger.addEventListener('click', activateTerminalMode);
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') activateTerminalMode();
+    });
+  }
 }

@@ -75,6 +75,14 @@
   transform: rotate(-30deg);
 }
 
+html[data-theme="terminal"] .photo-tape {
+  display: none;
+}
+
+html[data-theme="terminal"] .skill-subtopics {
+  white-space: normal;
+}
+
 /* Bio */
 .about-bio p {
   margin-bottom: 1.5rem;
@@ -100,6 +108,17 @@
   position: relative;
   margin-left: 50%;
   padding-left: 2rem;
+}
+
+html[data-theme="terminal"] .about-right-content {
+  margin-left: 0;
+  padding: 0 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+html[data-theme="terminal"] .about-grid {
+  justify-content: center;
 }
 
 /* Skills Overhaul Layout */
