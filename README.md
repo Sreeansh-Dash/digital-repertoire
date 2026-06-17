@@ -17,6 +17,8 @@ The portfolio is styled as a **field notebook**:
 - **Scroll-Synchronized Serpentine Spine**: A custom SVG Bezier curve path that stretches the full height of the document and draws itself to match the viewport's bottom edge.
 - **Pop-in Connection Nodes**: Spine nodes (dots) bounce into view using GSAP's `back` ease exactly when the timeline reaches them, drawing dashed connection paths to the section cards.
 - **Journey Timeline Connection & Sparkle**: The timeline curves swoopingly to connect directly with the Experience section's internal timeline, capped with a rotating sparkle animation.
+- **Auto-Fading Carousel**: A Vanilla JS driven carousel smoothly transitions between certificates, utilizing custom fading animations.
+- **Interactive Envelope Form**: The contact section features a CSS/GSAP interactive envelope that opens on click, revealing a form that dynamically pre-fills system email clients.
 - **Hover & Tilt Interactions**: Interactive elements tilt, wiggle, or rotate slightly on scroll and hover to give the notebook a tactile, responsive feel.
 - **Responsive Layout**: Designed to collapse into a clean, legible mobile column, with the heavy timeline spine automatically hidden on small screens for optimal performance.
 
@@ -80,8 +82,7 @@ sree-portfolio/
 │   │   ├── hero.js
 │   │   ├── about.js
 │   │   ├── projects.js
-│   │   ├── experience.js
-│   │   └── contact.js
+│   │   └── experience.js
 │   ├── styles/             # Dedicated CSS stylesheets per section
 │   │   ├── base.css        # Base theme variables and grid
 │   │   └── timeline.css    # Layout constraints for the spine timeline

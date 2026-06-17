@@ -1,4 +1,4 @@
-import { experience } from '../data/content.js';
+import { experience, meta } from '../data/content.js';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -22,23 +22,88 @@ export function initExperience() {
     `;
   }).join('');
 
-  section.innerHTML = `
-    <div class="content-right section-alt" style="position:relative;">
-      <div style="position:relative; z-index:6;">
-        <!-- Decorative dots SVG -->
-        <svg class="decor decor-experience" style="position:absolute; left:-40px; top:0; width:30px; height:60px; opacity:0.8;" viewBox="0 0 30 60">
-          <circle cx="10" cy="10" r="3" fill="var(--rust)"/>
-          <circle cx="20" cy="30" r="3" fill="var(--rust)"/>
-          <circle cx="10" cy="50" r="3" fill="var(--rust)"/>
-        </svg>
-        <div class="experience-header">
-          <div class="label experience-label">// timeline</div>
-          <h2>The Journey So Far</h2>
-        </div>
+  const certificates = [
+    "/certificates/Screenshot 2026-06-17 161509.png",
+    "/certificates/Screenshot 2026-06-17 161519.png",
+    "/certificates/Screenshot 2026-06-17 161530.png",
+    "/certificates/Screenshot 2026-06-17 161544.png",
+    "/certificates/Screenshot 2026-06-17 161617.png"
+  ];
 
-        <div class="timeline-container" id="timeline-container">
-          ${milestonesHtml}
-          <div style="clear: both;"></div>
+  section.innerHTML = `
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; width: 100%;">
+      <div class="content-left">
+        <div class="experience-header" style="margin-bottom: 20px;">
+          <div class="label experience-label">// credentials</div>
+          <h2>Certificates</h2>
+        </div>
+        <div style="position:relative; width: 100%; max-width: 450px; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; border: 2px solid var(--ink); box-shadow: 4px 4px 0 rgba(0,0,0,0.05); background: var(--paper-alt);">
+          ${certificates.map((c, i) => `<img src="${c}" class="cert-slide" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; opacity:${i===0?1:0}; transition: opacity 0.5s ease; background: var(--ink);" />`).join('')}
+        </div>
+        
+        <!-- Contact Section merged here -->
+        <div style="margin-top: 60px; position:relative;" id="contact-inner">
+          <div class="label contact-label" style="color: var(--green); margin-bottom: 0.5rem;">// say hi</div>
+          <h2 style="margin-bottom: 2rem;">Open to remote work</h2>
+
+          <div class="envelope-wrapper" id="contact-envelope" style="margin-bottom: 2rem; cursor: pointer; perspective: 800px; display: inline-block;">
+            <div class="envelope" style="position: relative; width: 150px; height: 110px; transform-style: preserve-3d;">
+              <div class="env-back" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--paper-alt); border: 2px solid var(--ink); z-index: 1;"></div>
+              <div class="env-paper" style="position: absolute; top: 10px; left: 10px; width: 130px; height: 90px; background-color: var(--paper); border: 1px dashed var(--ink-soft); z-index: 2; display: flex; align-items: flex-start; justify-content: center; padding-top: 10px; transition: transform 0.4s ease;">
+                <span class="hand" style="font-size: 0.9rem; color: var(--ink);">let's build something</span>
+              </div>
+              <svg class="env-front" viewBox="0 0 150 110" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 4; fill: var(--paper-alt); stroke: var(--ink); stroke-width: 2px; pointer-events: none;">
+                <path d="M0 110 L0 0 L75 55 L150 0 L150 110 Z" />
+              </svg>
+              <svg class="env-flap" viewBox="0 0 150 60" preserveAspectRatio="none" style="position: absolute; top: 0; left: 0; width: 100%; height: 60px; z-index: 5; transform-origin: top; transition: transform 0.4s ease; fill: var(--paper-alt); stroke: var(--ink); stroke-width: 2px;">
+                <path d="M0 0 L75 55 L150 0 Z" />
+              </svg>
+            </div>
+            
+            <!-- Hidden Questionnaire Form -->
+            <form id="contact-form" style="display: none; flex-direction: column; gap: 10px; margin-top: 20px; background: var(--paper-alt); padding: 15px; border: 2px solid var(--ink); border-radius: 8px; width: 100%; min-width: 280px; text-align: left; box-shadow: 4px 4px 0 rgba(0,0,0,0.05);">
+              <label style="font-size: 0.9rem; font-family: 'Space Mono', monospace;">Name</label>
+              <input type="text" id="cf-name" required style="padding: 8px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font-family: inherit;" />
+              
+              <label style="font-size: 0.9rem; font-family: 'Space Mono', monospace;">Contact / Email</label>
+              <input type="text" id="cf-contact" required style="padding: 8px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font-family: inherit;" />
+              
+              <label style="font-size: 0.9rem; font-family: 'Space Mono', monospace;">Message</label>
+              <textarea id="cf-message" required rows="3" style="padding: 8px; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); font-family: inherit; resize: vertical;"></textarea>
+              
+              <button type="submit" class="hand" style="margin-top: 10px; padding: 10px; background: var(--ink); color: var(--paper); border: none; cursor: pointer; font-size: 1.1rem;">Send Mail</button>
+            </form>
+          </div>
+
+          <div style="margin-bottom: 3rem;">
+            <a href="mailto:${meta.email}" class="hand contact-email" style="font-size: 1.5rem; color: var(--ink); text-decoration: underline; text-decoration-style: wavy; text-decoration-color: var(--green); text-underline-offset: 4px; display: inline-block;">${meta.email}</a>
+          </div>
+
+          <div class="stamp-links" style="display: flex; gap: 1.5rem; justify-content: flex-start;">
+            <a href="${meta.github}" target="_blank" class="stamp-link" aria-label="GitHub" style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--ink); background-color: var(--paper); color: var(--ink); font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1.1rem; transition: transform 0.2s ease, background-color 0.2s ease;">GH</a>
+            <a href="${meta.linkedin}" target="_blank" class="stamp-link" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--ink); background-color: var(--paper); color: var(--ink); font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1.1rem; transition: transform 0.2s ease, background-color 0.2s ease;">LI</a>
+            <a href="${meta.cv}" target="_blank" class="stamp-link" aria-label="Resume" style="display: flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--ink); background-color: var(--paper); color: var(--ink); font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1.1rem; transition: transform 0.2s ease, background-color 0.2s ease;">CV</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-right section-alt" style="position:relative;">
+        <div style="position:relative; z-index:6;">
+          <!-- Decorative dots SVG -->
+          <svg class="decor decor-experience" style="position:absolute; left:-40px; top:0; width:30px; height:60px; opacity:0.8;" viewBox="0 0 30 60">
+            <circle cx="10" cy="10" r="3" fill="var(--rust)"/>
+            <circle cx="20" cy="30" r="3" fill="var(--rust)"/>
+            <circle cx="10" cy="50" r="3" fill="var(--rust)"/>
+          </svg>
+          <div class="experience-header">
+            <div class="label experience-label">// timeline</div>
+            <h2>The Journey So Far</h2>
+          </div>
+
+          <div class="timeline-container" id="timeline-container">
+            ${milestonesHtml}
+            <div style="clear: both;"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -46,6 +111,63 @@ export function initExperience() {
 
   // Draw the SVG road after DOM update
   drawTimelineSvg();
+
+  // Carousel logic
+  const certSlides = document.querySelectorAll('.cert-slide');
+  let currentSlide = 0;
+  if (certSlides.length > 0) {
+    setInterval(() => {
+      certSlides[currentSlide].style.opacity = '0';
+      currentSlide = (currentSlide + 1) % certSlides.length;
+      certSlides[currentSlide].style.opacity = '1';
+    }, 3500);
+  }
+
+  // Envelope logic
+  const envelope = document.getElementById('contact-envelope');
+  const form = document.getElementById('contact-form');
+  const envFlap = envelope?.querySelector('.env-flap');
+  const envPaper = envelope?.querySelector('.env-paper');
+  
+  if (envelope && form) {
+    envelope.addEventListener('click', (e) => {
+      // Ignore clicks if they originated from the form itself
+      if (form.contains(e.target)) return;
+
+      // Toggle open state
+      const isOpen = envelope.classList.toggle('open');
+      if (isOpen) {
+        if(envFlap) envFlap.style.transform = 'rotateX(170deg)';
+        if(envFlap) envFlap.style.zIndex = '3';
+        if(envPaper) envPaper.style.transform = 'translateY(-30px)';
+        
+        form.style.display = 'flex';
+        gsap.fromTo(form, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+      } else {
+        if(envFlap) envFlap.style.transform = '';
+        setTimeout(() => { if(envFlap && !envelope.classList.contains('open')) envFlap.style.zIndex = '5'; }, 400);
+        if(envPaper) envPaper.style.transform = '';
+        
+        gsap.to(form, { opacity: 0, y: -20, duration: 0.3, onComplete: () => { form.style.display = 'none'; }});
+      }
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('cf-name').value;
+      const contact = document.getElementById('cf-contact').value;
+      const message = document.getElementById('cf-message').value;
+      
+      const subject = encodeURIComponent(`New message from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nContact: ${contact}\n\nMessage:\n${message}`);
+      
+      window.location.href = `mailto:${meta.email}?subject=${subject}&body=${body}`;
+      
+      // Reset after send
+      form.reset();
+      envelope.click(); // close it
+    });
+  }
   
   // Setup reveal animations
   const milestones = document.querySelectorAll('.milestone');

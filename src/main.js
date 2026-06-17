@@ -11,7 +11,6 @@ import { initHero } from './sections/hero.js';
 import { initAbout } from './sections/about.js';
 import { initProjects } from './sections/projects.js';
 import { initExperience } from './sections/experience.js';
-import { initContact } from './sections/contact.js';
 import { initDoodlePlacement } from './animations/doodlePlacement.js';
 import { initDoodleAnimations } from './animations/marginDoodles.js';
 import { initTerminalMode } from './animations/terminalMode.js';
@@ -25,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAbout();
   initProjects();
   initExperience();
-  initContact();
   initTerminalMode();
   initClickSpark();
 
