@@ -37,9 +37,11 @@ export function initExperience() {
           <div class="label experience-label">// credentials</div>
           <h2>Certificates</h2>
         </div>
-        <div style="position:relative; width: 100%; max-width: 450px; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; border: 2px solid var(--ink); box-shadow: 4px 4px 0 rgba(0,0,0,0.05); background: var(--paper-alt);">
-          ${certificates.map((c, i) => `<img src="${c}" class="cert-slide" style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:contain; opacity:${i===0?1:0}; transition: opacity 0.5s ease; background: var(--ink);" />`).join('')}
+        <div class="cert-stack">
+          <div class="cert-pin"></div>
+          ${certificates.map((c, i) => `<img src="${c}" class="cert-card cert-pos-${i+1}" />`).join('')}
         </div>
+
         
         <!-- Contact Section merged here -->
         <div style="margin-top: 60px; position:relative;" id="contact-inner">
@@ -112,15 +114,48 @@ export function initExperience() {
   // Draw the SVG road after DOM update
   drawTimelineSvg();
 
-  // Carousel logic
-  const certSlides = document.querySelectorAll('.cert-slide');
-  let currentSlide = 0;
-  if (certSlides.length > 0) {
-    setInterval(() => {
-      certSlides[currentSlide].style.opacity = '0';
-      currentSlide = (currentSlide + 1) % certSlides.length;
-      certSlides[currentSlide].style.opacity = '1';
-    }, 3500);
+  // Carousel logic for certificates
+  const certStack = document.querySelector('.cert-stack');
+  const certCards = certStack ? Array.from(certStack.querySelectorAll('.cert-card')) : [];
+  let certInterval;
+
+  function startCertLoop() {
+    if (certCards.length <= 1) return;
+    certInterval = setInterval(() => {
+      const topCard = certCards[0];
+      
+      // Make it fall
+      topCard.classList.add('cert-falling');
+      
+      // Wait for fall animation to complete
+      setTimeout(() => {
+        topCard.classList.remove('cert-falling');
+        topCard.style.transition = 'none'; // Snap back without animating up
+        
+        certCards.push(certCards.shift()); // Move top to back
+        
+        certCards.forEach((card, index) => {
+          for (let i = 1; i <= certCards.length; i++) {
+            card.classList.remove(`cert-pos-${i}`);
+          }
+          card.classList.add(`cert-pos-${index + 1}`);
+        });
+        
+        void topCard.offsetWidth; // Force reflow
+        topCard.style.transition = ''; // Restore transition
+      }, 600);
+      
+    }, 4000);
+  }
+
+  function stopCertLoop() {
+    clearInterval(certInterval);
+  }
+
+  if (certStack) {
+    startCertLoop();
+    certStack.addEventListener('mouseenter', stopCertLoop);
+    certStack.addEventListener('mouseleave', startCertLoop);
   }
 
   // Envelope logic

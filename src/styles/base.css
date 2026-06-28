@@ -233,6 +233,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   to { opacity: 0.3; }
 }
 
+@keyframes subtle-float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-4px) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+.decor {
+  animation: subtle-float 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none !important;
